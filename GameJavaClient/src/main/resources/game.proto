@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_package = "ma.Game.grpc";
+option java_multiple_files = true;
+
+service GuessNumberGame {
+  rpc GuessNumber (stream GuessRequest) returns (stream GuessResponse) {}
+}
+
+message GuessRequest {
+  int32 number = 1;
+}
+
+message GuessResponse {
+  string message = 1;
+  int32 winner = 2;
+}

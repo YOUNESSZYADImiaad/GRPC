@@ -1,0 +1,19 @@
+syntax="proto3";
+option java_package="ma.miaad.stubs";
+service BankService {
+  rpc convert(ConvertCurrencyRequest) returns (ConvertCurrencyResponse); // Unary model
+  rpc getCurrencyStream(ConvertCurrencyRequest) returns (stream ConvertCurrencyResponse); // Server Streaming model
+  rpc performStream(stream ConvertCurrencyRequest) returns (ConvertCurrencyResponse); //  Client Streaming model
+  rpc fullCurrencyStream(stream ConvertCurrencyRequest) returns (stream ConvertCurrencyResponse); //  Bidirectional Streaming model
+}
+message ConvertCurrencyRequest{
+  string currencyFrom=1;
+  string currencyTo=2;
+  double amount=3;
+}
+message ConvertCurrencyResponse{
+  string currencyFrom=1;
+  string currencyTo=2;
+  double amount=3;
+  double result =4;
+}

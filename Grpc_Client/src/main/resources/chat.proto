@@ -1,0 +1,12 @@
+syntax = "proto3";
+option java_package="ChatGRPC.chatstubs";
+
+service ChatService {
+    rpc SendMessage (Message) returns (Message) {}
+}
+
+message Message {
+    string username = 1;
+    string text = 2;
+}
+
